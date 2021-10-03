@@ -1,0 +1,54 @@
+<html>
+<body>
+            <form class="form-login" method="post">
+                <div class="form-group">
+                    <label for="user">Usuario</label>
+                    <input class="form-control" type="text" id="user" name="user" placeholder="Ingresa tu usuario">
+                
+                    <br>
+                
+                    <label for="pass">Contraseña</label>
+                    <input class="form-control" type="password" id="pass" name="pass" placeholder="Ingresa tu contraseña">
+                
+
+                <br>
+                <button type="submit" onclick="login();">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+<script>
+function login(){
+    var msg = "";
+    var user = document.querySelector("#user").value;
+    var pass = document.querySelector("#pass").value;
+
+    if (user == ""){
+        alert("Debe ingresar su Nombre de Usuario!");
+        return false;
+    }
+    else if (user.indexOf("@") == -1){
+        alert('Debe ingresar al menos un "@" en su Usuario');
+        return false;
+    } else{
+        msg = "Usuario ingresado correctamente! <br>";
+    }
+
+    if (pass == ""){
+        alert("Debe ingresar su Contrase\u00F1a!");
+        return false;
+    } else{
+        msg += "Contrase\u00F1a ingresada correctamente!";
+    }
+    if (msg != ""){
+        var html = "<strong>"+ msg +"</strong>";
+        document.querySelector(".form-login").innerHTML = html;
+
+        setTimeout ("redireccionar()", 4000);
+        return true;
+    }
+}
+
+    </script>
+</html>
+</body>
